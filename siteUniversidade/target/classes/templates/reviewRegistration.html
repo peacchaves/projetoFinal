@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Review Registration</title>
+    <link rel="stylesheet" th:href="@{/css/student-pages.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Review Registration</h1>
+        <form th:action="@{/students/submit}" th:object="${student}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <p>Nome: <span th:text="*{name}"></span></p>
+            <p>Data de Nascimento: <span th:text="*{birthDate}"></span></p>
+            <p>Curso: <span th:text="*{course}"></span></p>
+            <p>CEP: <span th:text="*{cep}"></span></p>
+            <p>Cidade: <span th:text="*{city}"></span></p>
+            <p>Bairro: <span th:text="*{neighborhood}"></span></p>
+            
+            <button type="submit">Confirmar Registro</button>
+        </form>
+        <form th:action="@{/students/edit}" th:object="${student}" method="get">
+            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{name}" />
+            <input type="hidden" th:field="*{birthDate}" />
+            <input type="hidden" th:field="*{course}" />
+            <input type="hidden" th:field="*{cep}" />
+            <input type="hidden" th:field="*{city}" />
+            <input type="hidden" th:field="*{neighborhood}" />
+            <button type="submit">Editar</button>
+        </form>
+        <a th:href="@{/students/cancel}">Cancelar</a>
+    </div>
+	<div class="footer">
+    	<form th:action="@{/logout}" method="post">
+        	<button type="submit" class="logout-link">Logout</button>
+    	</form>
+	</div>
+</body>
+</html>

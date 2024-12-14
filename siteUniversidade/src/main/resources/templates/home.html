@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Registro de Estudantes</title>
+    <link rel="stylesheet" th:href="@{/css/student-pages.css}">
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Bem-vindo ao Sistema de Registro de Estudantes</h1>
+        <p>Escolha uma opção:</p>
+        <ul>
+            <li><a th:href="@{/students/register}">Registrar Novo Estudante</a></li>
+        </ul>
+    </div>
+	<div class="footer">
+    	<form th:action="@{/logout}" method="post">
+        	<button type="submit" class="logout-link">Logout</button>
+    	</form>
+	</div>
+</body>
+</html>

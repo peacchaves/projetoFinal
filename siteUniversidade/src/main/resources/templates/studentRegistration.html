@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" th:href="@{/css/student-pages.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Student Registration</h1>
+        <form th:action="@{/students/register}" th:object="${student}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" th:field="*{name}" required>
+            </div>
+            <div>
+                <label for="birthDate">Data de Nascimento:</label>
+                <input type="date" id="birthDate" th:field="*{birthDate}" required>
+            </div>
+            <div>
+                <label for="course">Curso:</label>
+                <input type="text" id="course" th:field="*{course}" required>
+            </div>
+            <div>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" th:field="*{cep}" required>
+            </div>
+            <button type="submit">Próximo</button>
+        </form>
+    </div>
+	<div class="footer">
+    	<form th:action="@{/logout}" method="post">
+        	<button type="submit" class="logout-link">Logout</button>
+    	</form>
+	</div>
+</body>
+</html>
